@@ -1,0 +1,121 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services
+
+- Servers:
+    - Minis Forum MS-01:
+        icon: /images/minisforum.png
+        description: SDE PVE Server 1 (ms-01)
+        ping: pve1.sde.skyline-lab.com
+
+    - Dell T7910:
+        icon: dell.png
+        description: Test Lab Proxmox 1
+        ping: pve1.test.skyline-lab.com
+
+    - Dell T7920:
+        icon: dell.png
+        description: Test Lab Proxmox 2
+        ping: pve2.test.skyline-lab.com
+
+    - Dell 7050 Node-1:
+        icon: dell.png
+        description: Core PVE Server 1 (Dell 7050)
+        ping: pve1.core.skyline-lab.com
+
+    - Dell 7050 Node-2:
+        icon: dell.png
+        description: Core PVE Server 2 (Dell 7050)
+        ping: pve2.core.skyline-lab.com
+
+    - Dell 7050 Node-3:
+        icon: dell.png
+        description: Core PVE Server 3 (Dell 7050)
+        ping: pve3.core.skyline-lab.com
+
+- Core Network:
+    - PVE1:
+        icon: proxmox.png
+        href: https://pve1.core.skyline-lab.com:8006
+        description: Core PVE Server 1 (Dell 7050)
+        ping: pve1.core.skyline-lab.com
+    - Traefik (Core - NAS):
+        icon: traefik.png
+        href: http://traefik-dashboard-core.skyline-lab.com
+        description: Traefik SSL Proxy for Core Network Docker on NAS
+    - Traefik (Core - Proxmox):
+        icon: traefik.png
+        href: http://traefik-dashboard.skyline-lab.com
+        description: Traefik SSL Proxy for Core Network Docker on PVE
+    - Home Assistant:
+        icon: home-assistant.png
+        href: http://homeassistant.skyline-lab.com:8123
+        description: Home Automation Raspberry PI 5
+    - vaultwarden:
+        icon: vaultwarden.png
+        href: https://vaultwarden.skyline-lab.com
+        description: Vaultwarden
+
+- Software Development Environment:
+    - PVE1:
+        icon: proxmox.png
+        href: https://pve1.sde.skyline-lab.com:8006
+        description: SDE PVE Server 1 (ms-01)
+        ping: pve1.sde.skyline-lab.com
+    - Rancher:
+        icon: rancher.png
+        href: https://rancher.sde.skyline-lab.com
+        description: SW Dev Rancher Server
+    - GitLab:
+        icon: gitlab.png
+        href: http://gitlab.sde.skyline-lab.com/
+        description: GitLab Server 
+        siteMonitor: http://gitlab.sde.skyline-lab.com/
+    - GitLab:
+        icon: jenkins.png
+        href: http://jenkins.sde.skyline-lab.com:8080/
+        description: Jenkins 
+        siteMonitor: http://jenkins.sde.skyline-lab.com:8080/
+    - Artifactory:
+        icon: artifactory.png
+        href: http://artifactory.sde.skyline-lab.com:8082
+        description: Artifactory Opensource (Maven) 
+        siteMonitor: http://artifactory.sde.skyline-lab.com:8082
+
+- Test Lab:
+    - PVEDELLT7920:
+        icon: proxmox.png
+        href: https://pve2.test.skyline-lab.com:8006
+        description: Dell T7920 PVE Server
+        ping: pve2.test.skyline-lab.com
+
+- Storage:
+    - UGreen All Flash:
+        icon: /images/ugreen.svg
+        href: http://nas.core.skyline-lab.com:9999
+        description: DXP480T Plus
+        ping: nas.core.skyline-lab.com
+
+    - UGreen 6 Bay:
+        icon: /images/ugreen.svg
+        href: http://nas.sde.skyline-lab.com:9999
+        description: DXP6800 Pro
+        ping: nas.sde.skyline-lab.com
+
+    - ASUStor 10 Bay:
+        icon: asustor.png
+        href: http://nas-10g.rhel.lab:8000
+        description: Lockerstor 6510T
+        ping: nas-10g.rhel.lab
+
+    - QNAP 4 Bay:
+        icon: qnap-alt.png
+        href: https://skyline-nas.pbi.corp
+        description: QNAP TS-451+
+        ping: skyline-nas.pbi.corp
+
+    - Synology 2 Bay:
+        icon: synology.png
+        href: http://nas.skyline-lab.com
+        description: Synology 723+
+        ping: nas.skyline-lab.com

@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - 4000:3000
+    env_file: .env # use .env
+    volumes:
+      - ./homepage_data/config:/app/config
+      - ./homepage_data/images:/app/public/images
+
+        #      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
+    #networks:
+    #  nas-macvlan:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.entrypoints=http"
+      - "traefik.http.routers.homepage.rule=Host(`homepage.skyline-lab.com`)"
+      - "traefik.http.middlewares.homepage-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.homepage.middlewares=homepage-https-redirect"
+      - "traefik.http.routers.homepage-secure.entrypoints=https"
+      - "traefik.http.routers.homepage-secure.rule=Host(`homepage.skyline-lab.com`)"
+      - "traefik.http.routers.homepage-secure.tls=true"
+      - "traefik.http.routers.homepage-secure.service=homepage"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+      - "traefik.docker.network=nas-macvlan"
+    security_opt:
+      - no-new-privileges:true
+
+#networks:
+ # nas-macvlan:
+  #  external: true
+
